@@ -115,6 +115,12 @@ map("i", "<C-g>", function()
 end, { expr = true })
 
 
+-- LSP
+
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Go to Declaration" })
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" })
+map({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code action" })
+
 -- Переход к реализации
 map("n", "gr", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Go to Implementation" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

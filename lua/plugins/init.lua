@@ -213,6 +213,18 @@ return {
     },
   },
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    config = function()
+      local noice_config = require("configs.noice")
+      require("noice").setup(noice_config)
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  },
+  {
     "folke/neodev.nvim",
     config = function()
       require("neodev").setup {

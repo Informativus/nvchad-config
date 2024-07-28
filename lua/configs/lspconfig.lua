@@ -1,4 +1,3 @@
-print("Loading lspconfig.lua")
 local configs = require("nvchad.configs.lspconfig")
 
 local on_attach = configs.on_attach
@@ -7,7 +6,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "tsserver", "clangd", "gradle_ls" }
+local servers = { "html", "cssls", "tsserver", "clangd" }
 
 local function organize_imports()
   local params = {

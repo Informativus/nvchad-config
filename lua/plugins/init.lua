@@ -2,6 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
+
     config = function()
       require "configs.conform"
     end,
@@ -15,8 +16,9 @@ return {
   },
   {
     'mg979/vim-visual-multi',
+    branch = 'master',
+    lazy = false,
     init = function()
-      vim.g.VM_default_mappings = 0
       vim.g.VM_maps = {
         ['Find Under'] = '',
       }
@@ -228,6 +230,21 @@ return {
     }
   },
   {
+    'folke/which-key.nvim',
+    config = function()
+    require("which-key").setup {
+    }
+    end
+  },
+  {
+    'echasnovski/mini.icons',
+  },
+  {
+    "folke/trouble.nvim",
+    opts = {},
+    cmd = "Trouble",
+  },
+  {
     "folke/neodev.nvim",
     config = function()
       require("neodev").setup {
@@ -250,11 +267,6 @@ return {
   {
     "kevinhwang91/nvim-bqf",
     lazy = false,
-  },
-  {
-  "folke/trouble.nvim",
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
-  cmd = "Trouble",
   },
   {
     "folke/todo-comments.nvim",

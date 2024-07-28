@@ -218,6 +218,9 @@ return {
     config = function()
       local noice_config = require("configs.noice")
       require("noice").setup(noice_config)
+      require("notify").setup({
+      background_colour = "#000000" -- Устанавливаем правильный цвет фона
+      })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",

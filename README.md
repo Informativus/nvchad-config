@@ -1,79 +1,76 @@
+Вот переведенные таблицы на английский:
 
 ## Nvim
 
-| Комбинация клавишь | Действие                                                                                                                                                                                                    | Режим |
-| :----------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-|         \|         | Перемещение на начало строки                                                                                                                                                                                | n     |
-|        `V`         | Выделение всего текста на строке. Переносит в визуальный режим                                                                                                                                              | v     |
-|       `S-k`        | Перемещение выделенного текста вверх                                                                                                                                                                        | v     |
-|       `S-j`        | Перемещение выделенного текста вниз                                                                                                                                                                         | v     |
-|        `O`         | Набор текста на строку выше                                                                                                                                                                                 | n     |
-|        `o`         | Набор текста на строку ниже                                                                                                                                                                                 | n     |
-|        `%`         | Перемещение между открывающийся и закрывающийся скобками                                                                                                                                                    | n     |
-|        `[`         | Перемещение вверх по параграфу(то есть до следующего разрыва страницы)                                                                                                                                      | n     |
-|        `]`         | Перемещение вниз по параграфу                                                                                                                                                                               | n     |
-|        `^o`        | Дает возможность перемещаться по недавно выполненным действиям                                                                                                                                              | n, v  |
-|        `*`         | Поиск слова которое находится под курсором. <br>Появляется возможность перемещения по найденым словам. <br>Смотреть: [[nvim-materials#^info1]]<br>                                                          | n     |
-|        `za`        | Свернуть вкладку под курсором - развернуть вкладку под курсором.                                                                                                                                            | n     |
-|        `zM`        | Свернуть все вкладки                                                                                                                                                                                        | n     |
-|        `zR`        | Развернуть все вкладки                                                                                                                                                                                      | n     |
-|        `zc`        | Закрыть вкладку под курсором                                                                                                                                                                                | n     |
-|       `viw`        | Выделить слово под курсором                                                                                                                                                                                 | n     |
-|       `yiw`        | Скопировать слово под курсором                                                                                                                                                                              | n     |
-|       `diw`        | Удалить слово под курсором                                                                                                                                                                                  | n     |
-|        `f`         | Дает возможность перейти по введенному символу в строке(только если символ существует после курсора).<br>Появляется возможность перемещения по найденым символам. <br>Смотреть: [[nvim-materials#^info2]]   | n     |
-|        `F`         | Дает возможность перемещаться по строке в обратную сторону(только если символ существует после курсора)<br>Появляется возможность перемещения по найденым символам. <br>Смотреть: [[nvim-materials#^info2]] | n     |
-|   `ci<element>`    |                                                                                                                                                                                                             | n     |
-|   `yi<element>`    | Скопировать данные в нужном элементе                                                                                                                                                                        | n     |
-|   `dt<element>`    | Удалие до нужного элемента с добавлением в буфер                                                                                                                                                            | n     |
-|       `dip`        | Удалить все до параграфа                                                                                                                                                                                    | n     |
-|   `dit<element>`   | Удалить все внутри тега. Смотреть: [[nvim-materials#^info3]]                                                                                                                                                | n     |
-|    `<leader>cx`    | Закрыть все открытые вкладки                                                                                                                                                                                | n     |
-|        `\`         | Открыть вторую кладку по вертикали. Появляется возможность перемещения между ними. Смотреть: [[nvim-materials#^info4]]                                                                                      | n, v  |
-|    `<leqder>cq`    | Закрыть вкладку с сохранением                                                                                                                                                                               | n     |
-|      `<C-wo>`      | Закрыть все открытые вкладки                                                                                                                                                                                | n, v  |
-|      `<C-wq>`      | Закрыть вкладку на который находишься                                                                                                                                                                       | n, v  |
-|    `<leader>ph`    | Показывает последнее состояние изменной строки                                                                                                                                                              | n     |
-|    `<leader>n`     | Спрятать нумерацию строк                                                                                                                                                                                    | n     |
-|        `/`         | Поиск по словам в файле. Появляется возможность перемещения по словам. Смотреть: [[nvim-materials#^info1]]                                                                                                  | n     |
-|    `<leader>ts`    | Показывает все тесты в проекте с их описанием                                                                                                                                                               | n     |
-|      `<C-\>`       | Открыть - закрыть терминал                                                                                                                                                                                  | n, v  |
-|                    |                                                                                                                                                                                                             |       |
-|                    |                                                                                                                                                                                                             |       |
-|                    |                                                                                                                                                                                                             |       |
+| Key Combination | Action                                                                                                                                                                                                    | Mode |
+| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+|        `V`      | Select the entire line of text. Switches to visual mode                                                                                                                                                  | v     |
+|        `O`      | Insert text above the current line                                                                                                                                                                        | n     |
+|        `o`      | Insert text below the current line                                                                                                                                                                        | n     |
+|       `za`      | Toggle fold under the cursor                                                                                                                                                                               | n     |
+|       `zM`      | Fold all folds                                                                                                                                                                                             | n     |
+|       `zR`      | Unfold all folds                                                                                                                                                                                           | n     |
+|       `zc`      | Close fold under the cursor                                                                                                                                                                                 | n     |
+|       `viw`     | Select the word under the cursor                                                                                                                                                                            | n     |
+|       `yiw`     | Yank (copy) the word under the cursor                                                                                                                                                                     | n     |
+|       `diw`     | Delete the word under the cursor                                                                                                                                                                           | n     |
+|       `dip`     | Delete everything until the paragraph                                                                                                                                                                     | n     |
+|        `f`      | Move to the next occurrence of the specified character in the line (if the character exists after the cursor).<br>Allows navigation through found characters. <br>See: [[nvim-materials#^info2]]  | n     |
+|        `F`      | Move to the previous occurrence of the specified character in the line (if the character exists before the cursor).<br>Allows navigation through found characters. <br>See: [[nvim-materials#^info2]] | n     |
+|        `|`      | Move to the beginning of the line                                                                                                                                                                           | n     |
+|        `%`      | Move between matching pairs of parentheses, brackets, or braces                                                                                                                                           | n     |
+|        `[`      | Move up by paragraph (i.e., to the next paragraph break)                                                                                                                                                  | n     |
+|        `]`      | Move down by paragraph                                                                                                                                                                                     | n     |
+|        `*`      | Search for the word under the cursor. <br>Allows navigation through found words. <br>See: [[nvim-materials#^info1]]<br>                                                          | n     |
+|        `\`      | Open a vertical split window. Allows navigation between windows. See: [[nvim-materials#^info4]]                                                                                                          | n, v  |
+|        `/`      | Search for words in the file. Allows navigation through words. See: [[nvim-materials#^info1]]                                                                                                              | n     |
+|      `<S-j>`    | Move the selected text down                                                                                                                                                                                | v     |
+|      `<S-k>`    | Move the selected text up                                                                                                                                                                                  | v     |
+|      `<C-o>`    | Navigate through recently executed actions                                                                                                                                                               | n, v  |
+|     `<C-w><C-o>`| Close all open windows                                                                                                                                                                                      | n, v  |
+|     `<C-w><C-q>`| Close the current window                                                                                                                                                                                   | n, v  |
+|      `<C-\>`    | Toggle terminal                                                                                                                                                                                            | n, v  |
+|   `dt<element>` | Delete until the specified element and add it to the buffer                                                                                                                                               | n     |
+|   `yi<element>` | Yank (copy) the content inside the specified element                                                                                                                                                      | n     |
+|   `ci<element>` | Change the content inside the specified element (`[]`, `()`, `{}`)                                                                                                                                         | n     |
+|  `dit<element>` | Delete everything inside the tag. See: [[nvim-materials#^info3]]                                                                                                                                           | n     |
+|   `<leader>cx`  | Close all open windows                                                                                                                                                                                      | n     |
+|   `<leader>cq`  | Close the current window and save changes                                                                                                                                                                  | n     |
+|    `<leader>n`  | Toggle line numbers                                                                                                                                                                                          | n     |
+|   `<leader>ph`  | Show the last change in the current line                                                                                                                                                                    | n     |
+|   `<leader>ts`  | Show all tests in the project with their descriptions                                                                                                                                                      | n     |
 
->[!info] Примечание 1: возможности навигации:
->n - перемещение вниз по найденым словам 
->N - перемещение вверх по найденым словам
+>[!info] Note 1: Navigation options:
+> `n` - move down through found words 
+> `N` - move up through found words
 
 ^info1
 
->[!info] Примечание 2: возможности навигации:
->; - перемещение по найденым символам 
+>[!info] Note 2: Navigation options:
+> `;` - navigate through found characters 
 
 ^info2
 
->[!info] Примечание 3: возможности навигации:
-> Удалиние внутри html тегов. Пример: 
-> <div style="color: yellow;">Привет</div>
-> Будет удален текст внутри тега div
+>[!info] Note 3: Navigation options:
+> Delete content inside HTML tags. Example: 
+> `<div style="color: yellow;">Hello</div>`
+> Will delete the text inside the `div` tag.
 
 ^info3
 
->[!info] Примечание 4: возможности навигации:
->^w - перемещение между открытыми вкладками {
-> l - перемещение вправо
-> h - перемещение влево
+>[!info] Note 4: Navigation options:
+> `^w` - move between open windows {
+> `l` - move right
+> `h` - move left
 >}
 
 ^info4
 
-## NeoTree 
+## NeoTree
 
-| Комбинация клавишь | Действие                                  | Режим |
-| :----------------- | ----------------------------------------- | ----- |
-| `u`                | Переименовать с указанием папки           |       |
-| `r`                | переименование файла с указанием формата  |       |
-| `e`                | переименование файла без указания формата |       |
-
+| Key Combination | Action                                  | Mode |
+| :-------------- | --------------------------------------- | ----- |
+| `u`             | Rename with specifying folder           |       |
+| `r`             | Rename file with specifying format      |       |
+| `e`             | Rename file without specifying format   |       |
 

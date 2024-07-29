@@ -26,7 +26,7 @@ This document contains a list of all keybindings used in Nvim and NeoTree that m
 | `dip`           | Delete everything to the end of the paragraph.                                                           | n    |
 | `f`             | Move to the next occurrence of the specified character. Navigation: [Note 2](#note-2)                    | n    |
 | `F`             | Move to the previous occurrence of the specified character. Navigation: [Note 2](#note-2)               | n    |
-| `|`             | Move to the beginning of the line.                                                                       | n    |
+| &#124;             | Move to the beginning of the line.                                                                       | n    |
 | `%`             | Move between matching parentheses.                                                                      | n    |
 | `[`             | Move to the previous paragraph (page break).                                                            | n    |
 | `]`             | Move to the next paragraph.                                                                            | n    |

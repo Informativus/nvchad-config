@@ -1,196 +1,218 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-local wk = require("which-key")
+local wk = require "which-key"
 
-wk.register({
-  ["w"] = { "<cmd>w<CR>", "Save" },
-}, { prefix = "<leader>", mode = "n" })
+wk.add {
+  { "<leader>w", "<cmd>w<CR>", desc = "Save" },
+}
 
-wk.register({
-  p = { name = "Hide element" },
-}, { prefix = "<leader>", mode = "n" })
+wk.add {
+  { "<leader>p", group = "Check Huck" },
+}
 
-wk.register({
-  r = { name = "Reset"}
-}, { prefix = "<leader>", mode = "n" })
+wk.add {
+  { "<leader>r", group = "Reset Huck" },
+}
 
-wk.register({
-  c = { name = "Code" },
-}, { prefix = "<leader>", mode = "n" })
-
-wk.register({
-  ["cx"] = { "<cmd>lua require('nvchad.tabufline').closeAllBufs()<CR>", "Close All Buffers" },
-  ["cq"] = { "<cmd>:wq<cr>", "Quit with save" },
-  ["cQ"] = { "<cmd>:qa<cr>", "Quit all with check save" },
-}, { prefix = "<leader>", mode = "n" })
+-- Code
+wk.add {
+  { "<leader>c", group = "Code" },
+  { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
+  { "<leader>cx", "<cmd>lua require('nvchad.tabufline').closeAllBufs()<CR>", desc = "Close All Buffers" },
+  { "<leader>cq", "<cmd>:wq<cr>", desc = "Quit with save" },
+  { "<leader>cQ", "<cmd>:qa<cr>", desc = "Quit all with check save" },
+}
 
 -- Tmux
-
-wk.register({
-  ["<c-l>"] = { "<cmd>:TmuxNavigateRight<cr>", "Tmux Right" },
-  ["<c-h>"] = { "<cmd>:TmuxNavigateLeft<cr>", "Tmux Left" },
-  ["<c-k>"] = { "<cmd>:TmuxNavigateUp<cr>", "Tmux Up" },
-  ["<c-j>"] = { "<cmd>:TmuxNavigateDown<cr>", "Tmux Down" },
+wk.add({
+  { "<c-l>", "<cmd>:TmuxNavigateRight<cr>", desc = "Tmux Right" },
+  { "<c-h>", "<cmd>:TmuxNavigateLeft<cr>", desc = "Tmux Left" },
+  { "<c-k>", "<cmd>:TmuxNavigateUp<cr>", desc = "Tmux Up" },
+  { "<c-j>", "<cmd>:TmuxNavigateDown<cr>", desc = "Tmux Down" },
 }, { mode = { "n", "t", "v" } })
 
--- Move Lines
+-- Move selected text up
+map("v", "<S-k>", ":m .-2<CR>gv-gv", { desc = "Move Selected Text Up" })
 
-wk.register({
-  ["<S-k>"] = { ":m .-2<CR>==", "Move Line Up" },
-  ["<S-j>"] = { ":m .+1<CR>==", "Move Line Down" },
-}, { mode = "v" })
+-- Move selected text down
+map("v", "<S-j>", ":m .+1<CR>gv-gv", { desc = "Move Selected Text Down" })
 
-wk.register({
-  f = { name = "telescope" },
-}, { prefix = "<leader>", mode = "n" })
+-- Go to implementation
+wk.add({
+  { "gr", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to Implementation" },
+}, { mode = "n" })
 
-wk.register({ 
-  ["ft"] = { "<cmd>TodoTrouble<CR>", "Find Todo" },
-}, { prefix = "<leader>", mode = {"n", "v", "i"} })
+-- telescope
+wk.add({
+  { "<leader>f", group = "telescope" },
+  { "<leader>ft", "<cmd>TodoTrouble<CR>", desc = "Find Todo" },
+}, { mode = { "n", "v", "i" } })
 
-wk.register({
-  ["d"] = { "<cmd>t.<cr>", "Duplicate Line" },
-}, { prefix = "<leader>", mode = "n" })
+-- Duplicate Line
+wk.add {
+  { "<leader>d", "<cmd>t.<cr>", desc = "Duplicate Line" },
+}
 
 -- Trouble
-wk.register({
-  q = { name = "Trouble" },
-}, { prefix = "<leader>", mode = "n" })
+wk.add {
+  { "<leader>q", group = "Trouble" },
+  { "<leader>qx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble Diagnostics" },
+  { "<leader>qX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Trouble Buffer Diagnostics" },
+  { "<leader>qc", "<cmd>Trouble code_actions<cr>", desc = "Trouble Code Actions" },
+  { "<leader>ql", "<cmd>Trouble lsp_definitions<cr>", desc = "Trouble LSP Definitions" },
+  { "<leader>qL", "<cmd>Trouble loclist<cr>", desc = "Trouble Location List" },
+  { "<leader>qQ", "<cmd>Trouble quickfix<cr>", desc = "Trouble Quickfix List" },
+}
 
-wk.register({
-  ["qx"] = { "<cmd>Trouble diagnostics toggle<cr>", "Trouble Diagnostics" },
-  ["qX"] = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Trouble Buffer Diagnostics" },
-  ["qc"] = { "<cmd>Trouble code_actions<cr>", "Trouble Code Actions" },
-  ["ql"] = { "<cmd>Trouble lsp_definitions<cr>", "Trouble LSP Definitions" },
-  ["qL"] = { "<cmd>Trouble loclist<cr>", "Trouble Location List" },
-  ["qQ"] = { "<cmd>Trouble quickfix<cr>", "Trouble Quickfix List" },
-}, { prefix = "<leader>", mode = "n" })
-
--- Tests
-wk.register({
-  t = { name = "Test" },
-}, { prefix = "<leader>", mode = "n" })
-
-wk.register({
-  ["tt"] = { function() 
-    require("neotest").run.run()
-  end, "Test Nearest" },
-  ["tf"] = { function() 
+-- Test
+wk.add {
+  { "<leader>t", group = "Test" },
+  {
+    "<leader>tt",
+    function()
+      require("neotest").run.run()
+    end,
+    desc = "Test Nearest",
+  },
+  {
+    "<leader>tf",
+    function()
       require("neotest").run.run(vim.fn.expand "%")
-    end, "Test File" },
-  ["to"] = { "Neotest output<CR>", "Show test output" },
-  ["ts"] = { "Neotest summary<CR>", "Show test summary" },
-}, { prefix = "<leader>", mode = "n" })
+    end,
+    desc = "Test File",
+  },
+  { "<leader>to", "<cmd>Neotest output<CR>", desc = "Show test output" },
+  { "<leader>ts", "<cmd>Neotest summary<CR>", desc = "Show test summary" },
+}
 
 -- Debug
-
-wk.register({
-  d = { name = "Debug" },
-}, { prefix = "<leader>", mode = "n" })
-
-wk.register({
-  ["du"] = { function() 
-    require("dapui").toggle()
-  end, "Toggle Debug UI" },
-  ["db"] = { function() 
-    require("dap").toggle_breakpoint()
-  end, "Toggle Breakpoint" },
-  ["ds"] = { function() 
-    require("dap").continue()
-  end, "Start" },
-  ["dn"] = { function() 
-    require("dap").step_over()
-  end, "Step Over" },
-}, { prefix = "<leader>", mode = "n" })
+wk.add {
+  { "<leader>d", group = "Debug" },
+  {
+    "<leader>du",
+    function()
+      require("dapui").toggle()
+    end,
+    desc = "Toggle Debug UI",
+  },
+  {
+    "<leader>db",
+    function()
+      require("dap").toggle_breakpoint()
+    end,
+    desc = "Toggle Breakpoint",
+  },
+  {
+    "<leader>ds",
+    function()
+      require("dap").continue()
+    end,
+    desc = "Start",
+  },
+  {
+    "<leader>dn",
+    function()
+      require("dap").step_over()
+    end,
+    desc = "Step Over",
+  },
+}
 
 -- Git
+wk.add {
+  { "<leader>g", group = "Git" },
+  { "<leader>gl", ":Flog<CR>", desc = "Git Log" },
+  { "<leader>gf", ":DiffviewFileHistory<CR>", desc = "Git File History" },
+  { "<leader>gc", ":DiffviewOpen HEAD~1<CR>", desc = "Git Last Commit" },
+  { "<leader>gt", ":DiffviewToggleFile<CR>", desc = "Git File History" },
+}
 
-wk.register({
-  g = { name = "Git" },
-}, { prefix = "<leader>", mode = "n" })
-
-wk.register({
-  ["gl"] = { ":Flog<CR>", "Git Log" },
-  ["gf"] = { ":DiffviewFileHistory<CR>", "Git File History" },
-  ["gc"] = { ":DiffviewOpen HEAD~1<CR>", "Git Last Commit" },
-  ["gt"] = { ":DiffviewToggleFile<CR>", "Git File History" },
-}, { prefix = "<leader>", mode = "n" })
-
--- Terminal
-
-wk.register({
-  ["<C-]>"] = {
+wk.add({
+  {
+    "<C-]>",
     function()
       require("nvchad.term").toggle { pos = "vsp", size = 0.4 }
     end,
-    "Toggle Terminal Vertical"
+    desc = "Toggle Terminal Vertical",
   },
-  ["<C-\\>"] = {
+  {
+    "<C-\\>",
     function()
       require("nvchad.term").toggle { pos = "sp", size = 0.4 }
     end,
-    "Toggle Terminal Horizontal"
+    desc = "Toggle Terminal Horizontal",
   },
-  ["<C-f>"] = {
+  {
+    "<C-f>",
     function()
       require("nvchad.term").toggle { pos = "float" }
     end,
-    "Toggle Terminal Float"
+    desc = "Toggle Terminal Float",
   },
-}, { mode = {"n", "t"} }) -- Регистрация для нормального режима
-
--- Visual Multi
-
-wk.register({
-  m = { name = "Visual Multi" }
-}, { prefix = "<leader>", mode = "n" })
-
-wk.register({
-  ["ms"] = { "<Plug>(VM-Select-All)", "Select All" },
-  ["mo"] = { "<Plug>(VM-Toggle-Mappings)", "Toggle Mappings" },
-  ["mp"] = { "<Plug>(VM-Add-Cursor-At-Pos)", "VM Add Cursor At Pos" },
-  ["mr"] = { "<Plug>(VM-Start-Regex-Search)", "Start Regex Search" }
-}, { prefix = "<leader>", mode = "n" })
-
-wk.register({
-  ["mv"] = { visual_cursors_with_delay, "Visual Cursors" }
-}, { prefix = "<leader>", mode = "v" })
-
-local function visual_cursors_with_delay()
-  vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
-  vim.cmd('sleep 200m')
-  vim.cmd('silent! execute "normal! A"')
-end
-
--- Ufo
-
-wk.register({
-  ["zR"] = { require('ufo').openAllFolds, "Open all folds" },
-  ["zM"] = { require('ufo').closeAllFolds, "Close all folds" }
 }, { mode = "n" })
 
--- Basic
+wk.add({
+  {
+    "<C-]>",
+    function()
+      require("nvchad.term").toggle { pos = "vsp" }
+    end,
+    desc = "Toggle Terminal Vertical",
+  },
+  {
+    "<C-\\>",
+    function()
+      require("nvchad.term").toggle { pos = "sp" }
+    end,
+    desc = "Toggle Terminal Horizontal",
+  },
+  {
+    "<C-f>",
+    function()
+      require("nvchad.term").toggle { pos = "float" }
+    end,
+    desc = "Toggle Terminal Float",
+  },
+}, { mode = "t" })
 
-wk.register({
-  ["jj"] = { "<ESC>", "Escape" },
-}, { mode = "i" })
+-- Visual Multi
+local function visual_cursors_with_delay()
+  print "Visual multi"
+  vim.cmd 'silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"'
+  vim.cmd "sleep 200m"
+  vim.cmd 'silent! execute "normal! A"'
+end
 
-wk.register({
-  ["<C-g>"] = {
+wk.add({
+  { "<leader>m", group = "Visual Multi" },
+  { "<leader>ms", "<Plug>(VM-Select-All)", desc = "Select All" },
+  { "<leader>mo", "<Plug>(VM-Toggle-Mappings)", desc = "Toggle Mappings" },
+  { "<leader>mp", "<Plug>(VM-Add-Cursor-At-Pos)", desc = "VM Add Cursor At Pos" },
+  { "<leader>mr", "<Plug>(VM-Start-Regex-Search)", desc = "Start Regex Search" },
+}, { mode = "n" })
+
+map("v", "<leader>mv", visual_cursors_with_delay, { desc = "Visual Cursors" })
+
+-- Ufo
+wk.add {
+  { "zR", require("ufo").openAllFolds, desc = "Open all folds" },
+  { "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
+}
+
+-- Codeium
+wk.add({
+  {
+    "<C-g>",
     function()
       return vim.fn["codeium#Accept"]()
-    end, "Accept Codeium Suggestion"
-  }
+    end,
+    desc = "Accept Codeium Suggestion",
+  },
 }, { mode = "i" })
+
 -- LSP
-
-wk.register({
-  ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to Declaration" },
-  ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to Definition" },
-})
-
--- Переход к реализации
-wk.register({
-  ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to Implementation" },
-}, { prefix = "<leader>", mode = "n" })
+wk.add {
+  { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to Declaration" },
+  { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
+}

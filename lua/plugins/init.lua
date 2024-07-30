@@ -11,19 +11,19 @@ return {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
     config = function()
-      require("configs.ufo")
+      require "configs.ufo"
     end,
   },
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
   },
   {
-    'mg979/vim-visual-multi',
-    branch = 'master',
+    "mg979/vim-visual-multi",
+    branch = "master",
     lazy = false,
     init = function()
       vim.g.VM_maps = {
-        ['Find Under'] = '',
+        ["Find Under"] = "",
       }
       vim.g.VM_add_cursor_at_pos_no_mappings = 1
     end,
@@ -221,26 +221,25 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
-      local noice_config = require("configs.noice")
+      local noice_config = require "configs.noice"
       require("noice").setup(noice_config)
-      require("notify").setup({
-      background_colour = "#000000" -- Устанавливаем правильный цвет фона
-      })
+      require("notify").setup {
+        background_colour = "#000000", -- Устанавливаем правильный цвет фона
+      }
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
-    }
+    },
   },
   {
-    'folke/which-key.nvim',
+    "folke/which-key.nvim",
     config = function()
-    require("which-key").setup {
-    }
-    end
+      require("which-key").setup {}
+    end,
   },
   {
-    'echasnovski/mini.icons',
+    "echasnovski/mini.icons",
   },
   {
     "folke/trouble.nvim",
@@ -281,6 +280,9 @@ return {
   }, -- To make a plugin not be loaded
   {
     "Exafunction/codeium.vim",
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+    end,
     lazy = false,
   },
 }

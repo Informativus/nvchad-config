@@ -201,15 +201,51 @@ wk.add {
 }
 
 -- Codeium
-wk.add({
-  {
-    "<C-g>",
-    function()
-      return vim.fn["codeium#Accept"]()
-    end,
-    desc = "Accept Codeium Suggestion",
-  },
-}, { mode = "i" })
+map("i", "<C-g>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true })
+map("i", "<c-;>", function()
+  return vim.fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true })
+map("i", "<c-,>", function()
+  return vim.fn["codeium#CycleCompletions"](-1)
+end, { expr = true, silent = true })
+map("i", "<c-x>", function()
+  return vim.fn["codeium#Clear"]()
+end, { expr = true, silent = true })
+
+--
+-- wk.add({
+--   {
+--     "<C-g>",
+--     function()
+--       return vim.fn["codeium#Accept"]()
+--     end,
+--     { expr = true, silent = true },
+--   },
+--   {
+--     "<C-;>",
+--     function()
+--       return vim.fn["codeium#CycleCompletions"](1)
+--     end,
+--     { expr = true, silent = true },
+--   },
+--   {
+--     "<C-,>",
+--     function()
+--       return vim.fn["codeium#CycleCompletions"](-1)
+--     end,
+--     { expr = true, silent = true },
+--   },
+--   {
+--     "<C-x>",
+--     function()
+--       return vim.fn["codeium#Clear"]()
+--     end,
+--     { expr = true, silent = true },
+--   },
+-- }, { mode = "i" })
+--
 
 -- LSP
 wk.add {

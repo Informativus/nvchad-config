@@ -37,6 +37,8 @@ This document contains a list of all keybindings used in Nvim and NeoTree that m
 | `<S-k>`         | Move the selected text up.                                                                             | v    |
 | `<C-o>`         | Move through recently executed commands.                                                                | n, v |
 | `<C-wo>`        | Close all open windows.                                                                               | n, v |
+| `<C-g>`         | Use the codeium.                                                                                       | i    |
+| `<C-x>`         | Remove the codeium.                                                                                    | i    |
 | `<C-wq>`        | Close the current window.                                                                             | n, v |
 | `<C-\>`         | Toggle the terminal.                                                                                   | n, v |
 | `dt<element>`   | Delete up to the specified element.                                                                     | n    |

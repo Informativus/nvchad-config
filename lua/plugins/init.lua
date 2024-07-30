@@ -80,7 +80,6 @@ return {
         "css",
         "typescript",
         "javascript",
-        "go",
       },
     },
   },
@@ -132,18 +131,6 @@ return {
       require("better_escape").setup()
     end,
   },
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("chatgpt").setup {}
-  --   end,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  -- },
   {
     "nvim-neotest/neotest",
     event = "VeryLazy",
@@ -224,7 +211,7 @@ return {
       local noice_config = require "configs.noice"
       require("noice").setup(noice_config)
       require("notify").setup {
-        background_colour = "#000000", -- Устанавливаем правильный цвет фона
+        background_colour = "#000000",
       }
     end,
     dependencies = {
@@ -233,13 +220,13 @@ return {
     },
   },
   {
+    "echasnovski/mini.icons",
+  },
+  {
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup {}
     end,
-  },
-  {
-    "echasnovski/mini.icons",
   },
   {
     "folke/trouble.nvim",
@@ -260,24 +247,9 @@ return {
   }, lazy = false },
   { "sindrets/diffview.nvim", lazy = false },
   {
-    "ggandor/leap.nvim",
-    lazy = false,
-    config = function()
-      require("leap").add_default_mappings(true)
-    end,
-  },
-  {
     "kevinhwang91/nvim-bqf",
     lazy = false,
   },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = false,
-    config = function()
-      require("todo-comments").setup()
-    end,
-  }, -- To make a plugin not be loaded
   {
     "Exafunction/codeium.vim",
     config = function()

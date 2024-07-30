@@ -214,39 +214,6 @@ map("i", "<c-x>", function()
   return vim.fn["codeium#Clear"]()
 end, { expr = true, silent = true })
 
---
--- wk.add({
---   {
---     "<C-g>",
---     function()
---       return vim.fn["codeium#Accept"]()
---     end,
---     { expr = true, silent = true },
---   },
---   {
---     "<C-;>",
---     function()
---       return vim.fn["codeium#CycleCompletions"](1)
---     end,
---     { expr = true, silent = true },
---   },
---   {
---     "<C-,>",
---     function()
---       return vim.fn["codeium#CycleCompletions"](-1)
---     end,
---     { expr = true, silent = true },
---   },
---   {
---     "<C-x>",
---     function()
---       return vim.fn["codeium#Clear"]()
---     end,
---     { expr = true, silent = true },
---   },
--- }, { mode = "i" })
---
-
 -- LSP
 wk.add {
   { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to Declaration" },

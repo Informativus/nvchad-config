@@ -8,13 +8,13 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "html",
-  "cssls",
   "tsserver",
   "clangd",
   "eslint",
   "jsonls",
   "pylsp",
   "prismals",
+  "cssls",
 }
 
 local function organize_imports()

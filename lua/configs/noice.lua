@@ -1,39 +1,39 @@
 return {
   cmdline = {
-    enabled = true, -- Включает пользовательский интерфейс для командной строки Noice
-    view = "cmdline_input", -- Вид для рендеринга командной строки (всплывающее окно)
-    opts = {}, -- Глобальные опции для командной строки
+    enabled = true,
+    view = "cmdline_input",
+    opts = {},
     format = {
-      cmdline = { pattern = "^:", icon = "", lang = "vim" }, -- Формат командной строки (начинается с ":")
-      search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" }, -- Формат поиска вниз ("/")
-      search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" }, -- Формат поиска вверх ("?")
-      filter = { pattern = "^:%s*!", icon = "$", lang = "bash" }, -- Формат фильтрации (":!")
-      lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" }, -- Формат для Lua команд
-      help = { pattern = "^:%s*he?l?p?%s+", icon = "" }, -- Формат для команд помощи (":help")
-      input = { view = "cmdline_input", icon = "󰥻 " }, -- Формат для ввода
+      cmdline = { pattern = "^:", icon = "", lang = "vim" },
+      search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
+      search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+      filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
+      lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
+      help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+      input = { view = "cmdline_input", icon = "󰥻 " },
     },
   },
   messages = {
-    enabled = true, -- Включает пользовательский интерфейс для сообщений Noice
-    view = "notify", -- Вид по умолчанию для сообщений (уведомления)
-    view_error = "notify", -- Вид для ошибок
-    view_warn = "notify", -- Вид для предупреждений
-    view_history = "messages", -- Вид для истории сообщений (":messages")
-    view_search = "virtualtext", -- Вид для сообщений поиска. Установите в false, чтобы отключить
+    enabled = false,
+    view = "notify",
+    view_error = "notify",
+    view_warn = "notify",
+    view_history = "messages",
+    view_search = "virtualtext",
   },
   popupmenu = {
-    enabled = true, -- Включает пользовательский интерфейс для всплывающего меню Noice
-    backend = "nui", -- Бэкенд для отображения завершений командной строки
-    kind_icons = {}, -- Иконки для типов элементов завершения
+    enabled = true,
+    backend = "nui",
+    kind_icons = {},
   },
   redirect = {
-    view = "popup", -- Вид для перенаправленных команд
-    filter = { event = "msg_show" }, -- Фильтр для перенаправления сообщений
+    view = "popup",
+    filter = { event = "msg_show" },
   },
   commands = {
     history = {
-      view = "split", -- Вид для истории сообщений (разделенный экран)
-      opts = { enter = true, format = "details" }, -- Опции для вида истории
+      view = "split",
+      opts = { enter = true, format = "details" },
       filter = {
         any = {
           { event = "notify" },
@@ -45,8 +45,8 @@ return {
       },
     },
     last = {
-      view = "popup", -- Вид для последнего сообщения
-      opts = { enter = true, format = "details" }, -- Опции для вида последнего сообщения
+      view = "popup",
+      opts = { enter = true, format = "details" },
       filter = {
         any = {
           { event = "notify" },
@@ -56,97 +56,97 @@ return {
           { event = "lsp", kind = "message" },
         },
       },
-      filter_opts = { count = 1 }, -- Опции фильтра (количество сообщений)
+      filter_opts = { count = 1 },
     },
     errors = {
-      view = "popup", -- Вид для ошибок
-      opts = { enter = true, format = "details" }, -- Опции для вида ошибок
-      filter = { error = true }, -- Фильтр для ошибок
-      filter_opts = { reverse = true }, -- Опции фильтра (обратный порядок)
+      view = "popup",
+      opts = { enter = true, format = "details" },
+      filter = { error = true },
+      filter_opts = { reverse = true },
     },
     all = {
-      view = "split", -- Вид для всех сообщений
-      opts = { enter = true, format = "details" }, -- Опции для вида всех сообщений
-      filter = {}, -- Фильтр для всех сообщений
+      view = "split",
+      opts = { enter = true, format = "details" },
+      filter = {},
     },
   },
   notify = {
-    enabled = true, -- Включает использование Noice для уведомлений
-    view = "notify", -- Вид для уведомлений
+    enabled = true,
+    view = "notify",
   },
   lsp = {
     progress = {
-      enabled = true, -- Включает прогресс LSP
-      format = "lsp_progress", -- Формат прогресса LSP
-      format_done = "lsp_progress_done", -- Формат завершенного прогресса LSP
-      throttle = 1000 / 30, -- Частота обновления сообщений прогресса LSP
-      view = "mini", -- Вид для прогресса LSP
+      enabled = true,
+      format = "lsp_progress",
+      format_done = "lsp_progress_done",
+      throttle = 1000 / 30,
+      view = "mini",
     },
     override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = false, -- Переопределяет форматер markdown для LSP
-      ["vim.lsp.util.stylize_markdown"] = false, -- Переопределяет стилизацию markdown для LSP
-      ["cmp.entry.get_documentation"] = false, -- Переопределяет документацию для cmp
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+      ["vim.lsp.util.stylize_markdown"] = false,
+      ["cmp.entry.get_documentation"] = false,
     },
     hover = {
-      enabled = true, -- Включает hover для LSP
-      silent = false, -- Не отображать сообщение, если hover недоступен
-      view = nil, -- Использует настройки по умолчанию
-      opts = {}, -- Опции для hover
+      enabled = true,
+      silent = false,
+      view = nil,
+      opts = {},
     },
     signature = {
-      enabled = false, -- Включает подсказки для сигнатур
+      enabled = false,
       auto_open = {
-        enabled = true, -- Автоматически открывать подсказки сигнатур при вводе триггерного символа
-        trigger = true, -- Автоматически показывать подсказки сигнатур при вводе триггерного символа
-        luasnip = true, -- Открывать подсказки сигнатур при переходе к узлам вставки Luasnip
-        throttle = 50, -- Задержка запроса подсказки сигнатуры
+        enabled = true,
+        trigger = true,
+        luasnip = true,
+        throttle = 50,
       },
-      view = nil, -- Использует настройки по умолчанию
-      opts = {}, -- Опции для подсказок сигнатур
+      view = nil,
+      opts = {},
     },
     message = {
-      enabled = true, -- Включает сообщения от LSP серверов
-      view = "notify", -- Вид для сообщений от LSP серверов
-      opts = {}, -- Опции для сообщений
+      enabled = true,
+      view = "notify",
+      opts = {},
     },
     documentation = {
-      view = "hover", -- Вид для документации hover и подсказок сигнатур
+      view = "hover",
       opts = {
-        lang = "markdown", -- Язык документации
-        replace = true, -- Заменяет существующее окно документации
-        render = "plain", -- Рендер документации в виде текста
-        format = { "{message}" }, -- Формат документации
-        win_options = { concealcursor = "n", conceallevel = 3 }, -- Опции окна документации
+        lang = "markdown",
+        replace = true,
+        render = "plain",
+        format = { "{message}" },
+        win_options = { concealcursor = "n", conceallevel = 3 },
       },
     },
   },
   markdown = {
     hover = {
-      ["|(%S-)|"] = vim.cmd.help, -- Ссылки на справку vim
-      ["%[.-%]%((%S-)%)"] = require("noice.util").open, -- Ссылки markdown
+      ["|(%S-)|"] = vim.cmd.help,
+      ["%[.-%]%((%S-)%)"] = require("noice.util").open,
     },
     highlights = {
-      ["|%S-|"] = "@text.reference", -- Подсветка ссылок на справку
-      ["@%S+"] = "@parameter", -- Подсветка параметров
-      ["^%s*(Parameters:)"] = "@text.title", -- Подсветка заголовков параметров
-      ["^%s*(Return:)"] = "@text.title", -- Подсветка заголовков возвращаемых значений
-      ["^%s*(See also:)"] = "@text.title", -- Подсветка заголовков "См. также"
-      ["{%S-}"] = "@parameter", -- Подсветка параметров
+      ["|%S-|"] = "@text.reference",
+      ["@%S+"] = "@parameter",
+      ["^%s*(Parameters:)"] = "@text.title",
+      ["^%s*(Return:)"] = "@text.title",
+      ["^%s*(See also:)"] = "@text.title",
+      ["{%S-}"] = "@parameter",
     },
   },
   health = {
-    checker = true, -- Включает проверку состояния
+    checker = true,
   },
   presets = {
-    bottom_search = false, -- Использовать классическую нижнюю командную строку для поиска
-    command_palette = false, -- Размещает командную строку и всплывающее меню вместе
-    long_message_to_split = false, -- Длинные сообщения будут отправлены в разделенный экран
-    inc_rename = false, -- Включает диалог ввода для переименования с помощью inc-rename.nvim
-    lsp_doc_border = false, -- Добавляет границу для документов hover и подсказок сигнатур
+    bottom_search = false,
+    command_palette = false,
+    long_message_to_split = false,
+    inc_rename = false,
+    lsp_doc_border = false,
   },
-  throttle = 1000 / 30, -- Как часто Noice должен проверять обновления интерфейса
-  views = {}, -- Пользовательские виды
-  routes = {}, -- Пользовательские маршруты
-  status = {}, -- Компоненты строки состояния
-  format = {}, -- Опции форматирования
+  throttle = 1000 / 30,
+  views = {},
+  routes = {},
+  status = {},
+  format = {},
 }

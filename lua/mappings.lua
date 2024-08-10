@@ -36,7 +36,7 @@ wk.add({
 map("v", "<S-k>", ":m .-2<CR>gv-gv", { desc = "Move Selected Text Up" })
 
 -- Move selected text down
-map("v", "<S-j>", ":m .+1<CR>gv-gv", { desc = "Move Selected Text Down" })
+map("v", "<S-j>", ":move '>+1<CR>gv-gv", { desc = "Move Selected Text Down" })
 
 -- Go to implementation
 wk.add({
@@ -84,39 +84,6 @@ wk.add {
   },
   { "<leader>to", "<cmd>Neotest output<CR>", desc = "Show test output" },
   { "<leader>ts", "<cmd>Neotest summary<CR>", desc = "Show test summary" },
-}
-
--- Debug
-wk.add {
-  { "<leader>d", group = "Debug" },
-  {
-    "<leader>du",
-    function()
-      require("dapui").toggle()
-    end,
-    desc = "Toggle Debug UI",
-  },
-  {
-    "<leader>db",
-    function()
-      require("dap").toggle_breakpoint()
-    end,
-    desc = "Toggle Breakpoint",
-  },
-  {
-    "<leader>ds",
-    function()
-      require("dap").continue()
-    end,
-    desc = "Start",
-  },
-  {
-    "<leader>dn",
-    function()
-      require("dap").step_over()
-    end,
-    desc = "Step Over",
-  },
 }
 
 -- Git

@@ -23,7 +23,8 @@ This document contains a list of all keybindings used in Nvim and NeoTree that m
 | `viw`           | Select the word under the cursor.                                                                       | n    |
 | `yiw`           | Copy the word under the cursor.                                                                         | n    |
 | `diw`           | Delete the word under the cursor.                                                                       | n    |
-| `.`           | Add quotation marks around the words in parentheses.                                                                       | n    |
+| `cib`            | Change the content in the block.                                                                             | n    |
+| `.`              | Perform the last action.                                                                             | n    |
 | `dip`           | Delete everything to the end of the paragraph.                                                           | n    |
 | `f`             | Move to the next occurrence of the specified character. Navigation: [Note 2](#note-2)                    | n    |
 | `F`             | Move to the previous occurrence of the specified character. Navigation: [Note 2](#note-2)               | n    |

@@ -1,10 +1,20 @@
 local configs = require "nvchad.configs.lspconfig"
 
 local on_attach = configs.on_attach
-local on_init = configs.on_init
 local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
+
+vim.api.nvim_create_autocmd("BufWritePre", { command = "OrganizeImports" })
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
 
 local servers = {
   "html",
@@ -17,15 +27,6 @@ local servers = {
   "cssls",
 }
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
-
--- Конфигурация для каждого LSP сервера
 for _, lsp in ipairs(servers) do
   local config = {
     on_attach = on_attach,
@@ -39,6 +40,7 @@ for _, lsp in ipairs(servers) do
       organize_imports,
       description = "Organize Imports",
     }
+    vim.api.nvim_create_user_command("OrganizeImports", organize_imports, {})
   elseif lsp == "lua_ls" then
     config.settings.Lua = {
       diagnostics = {

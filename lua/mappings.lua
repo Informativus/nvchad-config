@@ -96,10 +96,7 @@ wk.add {
 -- Git
 wk.add {
   { "<leader>g", group = "Git" },
-  { "<leader>gl", ":Flog<CR>", desc = "Git Log" },
-  { "<leader>gf", ":DiffviewFileHistory<CR>", desc = "Git File History" },
-  { "<leader>gc", ":DiffviewOpen HEAD~1<CR>", desc = "Git Last Commit" },
-  { "<leader>gt", ":DiffviewToggleFile<CR>", desc = "Git File History" },
+  { "<leader>gl", "<cmd>LazyGit<cr>", desc = "Git Log" },
 }
 
 wk.add({

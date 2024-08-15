@@ -12,8 +12,15 @@ wk.add {
 }
 
 wk.add {
-  { "<leader>r", group = "Reset Huck" },
+  { "<leader>r", group = "Refactoring" },
 }
+
+wk.add({
+  { "<leader>ri", "<cmd>OrganizeImports<cr>", desc = "Organize Imports" },
+}, { mode = "n" })
+
+map("n", "<S-j>", "5j", { desc = "Move 5 lines down" })
+map("n", "<S-k>", "5k", { desc = "Move 5 lines up" })
 
 -- Code
 wk.add {

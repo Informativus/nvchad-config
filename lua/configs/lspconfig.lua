@@ -5,7 +5,8 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-vim.api.nvim_create_autocmd("BufWritePre", { command = "OrganizeImports" })
+-- If you want to set up automatic organizing imports on save
+-- vim.api.nvim_create_autocmd("BufWritePre", { command = "OrganizeImports" })
 
 local function organize_imports()
   local params = {

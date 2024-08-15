@@ -52,6 +52,7 @@ This document contains a list of all keybindings used in Nvim and NeoTree that m
 | `<leader>n`     | Toggle line numbers.                                                                                   | n    |
 | `<leader>ph`    | Show the last change to the line.                                                                       | n    |
 | `<leader>ts`    | Show all tests in the project with their descriptions.                                                   | n    |
+| `<leader>gl`    | Open Lazy git UI.                                                   | n    |
 | `<leader>mp`    | Move the cursor to the specified location.                                                              | n    |
 | `<leader>ms`    | Select all words under the cursor.                                                                      | n    |
 | `<leader>mo`    | Enter Visual Multiple mode for working with multiple cursors.                                           | n    |

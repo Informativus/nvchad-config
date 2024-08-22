@@ -15,8 +15,13 @@ wk.add {
   { "<leader>r", group = "Refactoring" },
 }
 
+wk.add {
+  { "<leader>d", group = "Dublicate" },
+}
+
 wk.add({
   { "<leader>ri", "<cmd>OrganizeImports<cr>", desc = "Organize Imports" },
+  { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
 }, { mode = "n" })
 
 map("n", "<S-j>", "5j", { desc = "Move 5 lines down" })
@@ -59,6 +64,7 @@ wk.add({
 -- Duplicate Line
 wk.add {
   { "<leader>d", "<cmd>t.<cr>", desc = "Duplicate Line" },
+  { "<leader>dl", "\"zy'>p:let @z=@0<CR>", mode = "v", desc = "Duplicate Selected Lines" },
 }
 
 -- Trouble

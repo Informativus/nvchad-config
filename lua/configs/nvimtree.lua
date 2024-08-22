@@ -15,7 +15,7 @@ local options = {
   view = {
     adaptive_size = false, -- Выключить адаптивный размер окна
     side = "left", -- Располагать дерево слева
-    width = 23, -- Ширина окна дерева
+    width = 30, -- Ширина окна дерева
     preserve_window_proportions = true, -- Сохранять пропорции окна
   },
   git = {

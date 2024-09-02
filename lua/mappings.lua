@@ -62,10 +62,11 @@ wk.add({
 }, { mode = { "n", "v", "i" } })
 
 -- Duplicate Line
-wk.add {
+wk.add({
   { "<leader>d", "<cmd>t.<cr>", desc = "Duplicate Line" },
-  { "<leader>dl", "\"zy'>p:let @z=@0<CR>", mode = "v", desc = "Duplicate Selected Lines" },
-}
+}, { mode = "n" })
+
+map("v", "<leader>dl", "y'>pgv", { desc = "Duplicate Selected Lines" })
 
 -- Trouble
 wk.add {

@@ -155,21 +155,21 @@ return {
       "haydenmeade/neotest-jest",
     },
   },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    config = function()
-      local noice_config = require "configs.noice"
-      require("noice").setup(noice_config)
-      require("notify").setup {
-        background_colour = "#000000",
-      }
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     local noice_config = require "configs.noice"
+  --     require("noice").setup(noice_config)
+  --     require("notify").setup {
+  --       background_colour = "#000000",
+  --     }
+  --   end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   },
+  -- },
   {
     "echasnovski/mini.icons",
     lazy = false,

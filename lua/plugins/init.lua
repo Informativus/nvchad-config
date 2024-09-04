@@ -86,7 +86,25 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     opts = function()
-      return { override = require "nvchad.icons.devicons" }
+      return {
+        override = vim.tbl_extend("force", require "nvchad.icons.devicons", {
+          [".env.example"] = {
+            icon = "",
+            color = "#ffc500",
+            name = "EnvExample",
+          },
+          [".env.dev"] = {
+            icon = "",
+            color = "#ffc500",
+            name = "EnvExample",
+          },
+          [".env.prod"] = {
+            icon = "",
+            color = "#ffc500",
+            name = "EnvExample",
+          },
+        }),
+      }
     end,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "devicons")

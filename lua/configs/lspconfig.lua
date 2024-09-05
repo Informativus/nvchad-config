@@ -23,7 +23,7 @@ local servers = {
   "clangd",
   "eslint",
   "jsonls",
-  "pylsp",
+  "pyright", -- Изменено с pylsp на pyright
   "prismals",
   "cssls",
 }
@@ -51,14 +51,14 @@ for _, lsp in ipairs(servers) do
         library = vim.api.nvim_get_runtime_file("", true),
       },
     }
-  elseif lsp == "pylsp" then
+  elseif lsp == "pyright" then
+    -- Конфигурация для Pyright
     config.settings = {
-      pylsp = {
-        plugins = {
-          pycodestyle = {
-            maxLineLength = 88,
-          },
-        },
+      pyright = {
+        autoImportCompletion = true,
+        typeCheckingMode = "strict",
+        pythonVersion = "3.8", -- Укажите версию Python, которую вы используете
+        pythonPlatform = "Linux", -- Укажите вашу платформу, если необходимо
       },
     }
   elseif lsp == "eslint" then

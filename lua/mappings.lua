@@ -197,3 +197,8 @@ wk.add {
   { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to Declaration" },
   { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
 }
+
+-- GPT
+-- wk.add {
+--   { "<leader>gpt", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+-- }

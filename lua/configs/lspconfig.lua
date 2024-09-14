@@ -19,7 +19,7 @@ end
 
 local servers = {
   "html",
-  "tsserver",
+  "ts_ls",
   "clangd",
   "eslint",
   "jsonls",
@@ -36,7 +36,7 @@ for _, lsp in ipairs(servers) do
     settings = {},
   }
 
-  if lsp == "tsserver" then
+  if lsp == "ts_ls" then
     config.commands.OrganizeImports = {
       organize_imports,
       description = "Organize Imports",

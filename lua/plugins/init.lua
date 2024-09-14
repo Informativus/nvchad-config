@@ -103,6 +103,11 @@ return {
             color = "#ffc500",
             name = "EnvExample",
           },
+          proto = {
+            icon = "",
+            color = "#ff007f",
+            name = "Proto",
+          },
         }),
       }
     end,

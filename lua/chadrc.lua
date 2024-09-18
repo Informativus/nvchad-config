@@ -37,4 +37,17 @@ M.ui = {
   },
 }
 
+M.mason = {
+  pkgs = {
+    "html",
+    "ts_ls",
+    "clangd",
+    "eslint",
+    "jsonls",
+    "pyright", -- Изменено с pylsp на pyright
+    "prismals",
+    "cssls",
+  },
+}
+
 return M

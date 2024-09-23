@@ -23,9 +23,10 @@ local servers = {
   "clangd",
   "eslint",
   "jsonls",
-  "pyright", -- Изменено с pylsp на pyright
+  "pyright",
   "prismals",
   "cssls",
+  "yamlls",
 }
 
 for _, lsp in ipairs(servers) do

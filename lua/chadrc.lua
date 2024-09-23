@@ -1,4 +1,4 @@
----@type ChadrcConfig
+-- @type ChadrcConfig
 local M = {}
 
 M.ui = {
@@ -43,8 +43,9 @@ M.mason = {
     "clangd",
     "eslint",
     "jsonls",
-    "pyright", -- Изменено с pylsp на pyright
+    "pyright",
     "prismals",
+    "yamlls",
     "cssls",
   },
 }

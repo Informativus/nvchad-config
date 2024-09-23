@@ -2,8 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "jabuti",
-  transparency = true,
+  theme = "bearded-arc",
   statusline = {
     theme = "vscode_colored",
   },

@@ -2,6 +2,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local wk = require "which-key"
+local cmp = require "cmp"
 
 wk.add {
   { "<leader>w", "<cmd>w<CR>", desc = "Save" },
@@ -191,14 +192,12 @@ end, { expr = true, silent = true })
 map("i", "<c-s>", function()
   return vim.fn["codeium#CycleCompletions"](1)
 end, { expr = true, silent = true })
+map("i", "<c-w>", function()
+  return vim.fn["codeium#AcceptNextWord"]()
+end, { expr = true, silent = true })
 
 -- LSP
 wk.add {
   { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to Declaration" },
   { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
 }
-
--- GPT
--- wk.add {
---   { "<leader>gpt", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
--- }

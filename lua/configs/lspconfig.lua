@@ -5,9 +5,6 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
--- If you want to set up automatic organizing imports on save
--- vim.api.nvim_create_autocmd("BufWritePre", { command = "OrganizeImports" })
-
 local function organize_imports()
   local params = {
     command = "_typescript.organizeImports",
@@ -58,8 +55,7 @@ for _, lsp in ipairs(servers) do
       pyright = {
         autoImportCompletion = true,
         typeCheckingMode = "strict",
-        pythonVersion = "3.8", -- Укажите версию Python, которую вы используете
-        pythonPlatform = "Linux", -- Укажите вашу платформу, если необходимо
+        pythonVersion = "3.12",
       },
     }
   elseif lsp == "eslint" then
@@ -73,3 +69,18 @@ lspconfig.prismals.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+local linters = {
+  "black",
+  "pylint",
+  "eslint_d",
+  "prettier",
+  "stylua",
+  "sql-formatter",
+}
+
+for _, linter in ipairs(linters) do
+  require("mason").setup {
+    ensure_installed = { linter },
+  }
+end

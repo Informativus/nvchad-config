@@ -67,6 +67,10 @@ return {
         "css",
         "typescript",
         "javascript",
+        "json",
+        "yaml",
+        "markdown",
+        "proto",
       },
     },
   },
@@ -234,20 +238,18 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     local home = vim.fn.expand "$HOME"
-  --     require("chatgpt").setup {
-  --       api_key_cmd = home .. "/.datas/keys/get_chatgpt_key.sh",
-  --     }
-  --   end,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "folke/trouble.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  -- },
+  {
+    "nvchad/ui",
+    config = function()
+      require "nvchad"
+    end,
+  },
+
+  {
+    "nvchad/base46",
+    lazy = true,
+    build = function()
+      require("base46").load_all_highlights()
+    end,
+  },
 }

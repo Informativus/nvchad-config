@@ -1,12 +1,35 @@
--- @type ChadrcConfig
+---@type ChadrcConfig
 local M = {}
 
 M.ui = {
-  theme = "chadracula-evondev",
-  transparency = true,
   statusline = {
     theme = "vscode_colored",
   },
+
+  telescope = {
+    style = "bordered",
+    layout_config = {
+      prompt_position = "bottom",
+      width = 0.8,
+      height = 0.6,
+      preview_cutoff = 120,
+    },
+  },
+  cmp = {
+    lspkind_text = true,
+    style = "default",
+    format_colors = {
+      tailwind = false,
+    },
+  },
+
+  tabufline = {
+    enabled = true,
+    lazyload = true,
+    order = { "treeOffset", "buffers", "tabs", "btns" },
+    modules = nil,
+  },
+
   nvdash = {
     load_on_startup = true,
     header = {
@@ -19,6 +42,15 @@ M.ui = {
     },
   },
 
+  buttons = {
+    { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+    { txt = "  Recent Files", keys = "Spc f g", cmd = "Telescope oldfiles" },
+  },
+}
+
+M.base46 = {
+  theme = "chadracula-evondev",
+  transparency = true,
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },

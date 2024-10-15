@@ -201,3 +201,7 @@ wk.add {
   { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to Declaration" },
   { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
 }
+
+map("n", "<leader>th", function()
+  require("nvchad.themes").open { border = true }
+end, {})

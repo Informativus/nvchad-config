@@ -55,7 +55,6 @@ return {
   {
     "williamboman/mason.nvim",
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -169,21 +168,6 @@ return {
       "haydenmeade/neotest-jest",
     },
   },
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     local noice_config = require "configs.noice"
-  --     require("noice").setup(noice_config)
-  --     require("notify").setup {
-  --       background_colour = "#000000",
-  --     }
-  --   end,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   },
-  -- },
   {
     "echasnovski/mini.icons",
     lazy = false,
@@ -233,7 +217,6 @@ return {
       "LazyGitFilter",
       "LazyGitFilterCurrentFile",
     },
-    -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

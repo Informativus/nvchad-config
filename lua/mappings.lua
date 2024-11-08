@@ -60,6 +60,7 @@ wk.add({
 wk.add({
   { "<leader>f", group = "telescope" },
   { "<leader>ft", "<cmd>TodoTrouble<CR>", desc = "Find Todo" },
+  { "<leader>fl", "<cmd>Telescope live_grep<CR>", desc = "Search words in Project" },
 }, { mode = { "n", "v", "i" } })
 
 -- Duplicate Line

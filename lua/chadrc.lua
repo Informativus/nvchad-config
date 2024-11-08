@@ -13,7 +13,7 @@ M = {
   },
 
   base46 = {
-    theme = "chadracula-evondev",
+    theme = "catppuccin",
     transparency = true,
     hl_override = {
       Comment = { italic = true },

@@ -1,9 +1,16 @@
 local configs = require "nvchad.configs.lspconfig"
-
-local on_attach = configs.on_attach
-local capabilities = configs.capabilities
-
 local lspconfig = require "lspconfig"
+
+local on_attach = function(client, bufnr)
+  print "lsp-lens"
+  if client.resolved_capabilities.document_link then
+    require("configs.lens").setup()
+    vim.cmd "LspLensOn"
+  end
+  configs.on_attach(client, bufnr)
+end
+
+local capabilities = configs.capabilities
 
 local function organize_imports()
   local params = {
@@ -14,12 +21,36 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
+local function setup_lsp_config(lsp, config)
+  if lsp == "ts_ls" then
+    config.commands.OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    }
+    vim.api.nvim_create_user_command("OrganizeImports", organize_imports, {})
+  elseif lsp == "lua_ls" then
+    config.settings.Lua = {
+      diagnostics = { globals = { "vim" } },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+    }
+  elseif lsp == "pyright" then
+    config.settings.pyright = {
+      autoImportCompletion = true,
+      typeCheckingMode = "strict",
+      pythonVersion = "3.12",
+    }
+  elseif lsp == "eslint" then
+    config.cmd = { "vscode-eslint-language-server", "--stdio" }
+  end
+end
+
 local servers = {
   "html",
   "ts_ls",
   "clangd",
   "eslint",
   "jsonls",
+  "lua_ls",
   "pyright",
   "prismals",
   "cssls",
@@ -33,35 +64,7 @@ for _, lsp in ipairs(servers) do
     commands = {},
     settings = {},
   }
-
-  if lsp == "ts_ls" then
-    config.commands.OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    }
-    vim.api.nvim_create_user_command("OrganizeImports", organize_imports, {})
-  elseif lsp == "lua_ls" then
-    config.settings.Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-    }
-  elseif lsp == "pyright" then
-    -- Конфигурация для Pyright
-    config.settings = {
-      pyright = {
-        autoImportCompletion = true,
-        typeCheckingMode = "strict",
-        pythonVersion = "3.12",
-      },
-    }
-  elseif lsp == "eslint" then
-    config.cmd = { "vscode-eslint-language-server", "--stdio" }
-  end
-
+  setup_lsp_config(lsp, config)
   lspconfig[lsp].setup(config)
 end
 

@@ -180,6 +180,13 @@ wk.add {
   { "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
 }
 
+-- lsp-lens
+wk.add({
+  { "<leader>l", group = "LSP-Lens" },
+  { "<leader>lu", "<cmd>Telescope lsp_references<cr>", desc = "LSP Usages (References)" },
+  { "<leader>lo", "<cmd>LspLensToggle<cr>", desc = "On/off LSP Lens" },
+}, { mode = "n" })
+
 -- Codeium
 map("i", "<C-g>", function()
   return vim.fn["codeium#Accept"]()

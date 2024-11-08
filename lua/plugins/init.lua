@@ -227,12 +227,19 @@ return {
       require "nvchad"
     end,
   },
-
   {
     "nvchad/base46",
     lazy = true,
     build = function()
       require("base46").load_all_highlights()
+    end,
+  },
+  {
+    "VidocqH/lsp-lens.nvim",
+    lazy = true,
+    event = "LspAttach",
+    config = function()
+      require("configs.lens").setup()
     end,
   },
 }

@@ -220,6 +220,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    lazy = false,
   },
   {
     "nvchad/ui",
@@ -240,6 +241,14 @@ return {
     event = "LspAttach",
     config = function()
       require("configs.lens").setup()
+    end,
+  },
+
+  {
+    "gelguy/wilder.nvim",
+    lazy = false,
+    config = function()
+      require("configs.wilder").setup()
     end,
   },
 }

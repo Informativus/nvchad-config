@@ -15,9 +15,6 @@ return {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-  },
-  {
     "mg979/vim-visual-multi",
     branch = "master",
     lazy = false,

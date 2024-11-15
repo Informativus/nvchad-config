@@ -2,7 +2,6 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local wk = require "which-key"
-local cmp = require "cmp"
 
 wk.add {
   { "<leader>w", "<cmd>w<CR>", desc = "Save" },

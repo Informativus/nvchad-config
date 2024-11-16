@@ -41,6 +41,7 @@ M.nvdash = {
     "██║ ╚████╔╝ ██║  ██║██║ ╚████║    ██║     ╚██████╔╝██║     ╚██████╔╝ ╚████╔╝ ",
     "╚═╝  ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝      ╚═════╝ ╚═╝      ╚═════╝   ╚═══╝  ",
     "                                                                             ",
+    "                         󱐋 Powered By  neovim                               ",
   },
   buttons = {
     { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },

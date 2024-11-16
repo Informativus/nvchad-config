@@ -251,4 +251,19 @@ return {
     "MunifTanjim/nui.nvim",
     lazy = true,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, conf)
+      conf.defaults.layout_strategy = "horizontal"
+
+      conf.defaults.layout_config = {
+        prompt_position = "bottom",
+        width = { padding = 0.17 }, -- 0.48 maximum width padding
+      }
+
+      conf.defaults.sorting_strategy = "descending"
+
+      return conf
+    end,
+  },
 }

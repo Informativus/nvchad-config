@@ -28,7 +28,7 @@ function M.create_file_modal()
   popup:mount()
 
   -- Вставка текста для ввода
-  vim.api.nvim_buf_set_lines(popup.bufnr, 0, -1, false, { "Enter file name:" })
+  vim.api.nvim_buf_set_lines(popup.bufnr, 0, -1, false, {})
   vim.api.nvim_buf_set_option(popup.bufnr, "modifiable", true)
 
   popup:on(event.BufLeave, function()

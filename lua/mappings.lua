@@ -155,6 +155,11 @@ wk.add({
   },
 }, { mode = "t" })
 
+wk.add {
+  { "<leader>c", group = "" },
+  { "<leader>cf", "<cmd>lua require('configs.nuiNewFilePopup').create_file_modal()<cr>", desc = "Create new file" },
+}
+
 -- Visual Multi
 local function visual_cursors_with_delay()
   print "Visual multi"

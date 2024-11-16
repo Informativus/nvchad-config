@@ -240,12 +240,15 @@ return {
       require("configs.lens").setup()
     end,
   },
-
   {
     "gelguy/wilder.nvim",
     lazy = false,
     config = function()
       require("configs.wilder").setup()
     end,
+  },
+  {
+    "MunifTanjim/nui.nvim",
+    lazy = true,
   },
 }

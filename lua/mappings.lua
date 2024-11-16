@@ -32,8 +32,8 @@ wk.add {
   { "<leader>c", group = "Code" },
   { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
   { "<leader>cx", "<cmd>lua require('nvchad.tabufline').closeAllBufs()<CR>", desc = "Close All Buffers" },
-  { "<leader>cq", "<cmd>:wq<cr>", desc = "Quit with save" },
-  { "<leader>cQ", "<cmd>:qa<cr>", desc = "Quit all with check save" },
+  { "<leader>cq", "<cmd>wq<cr>", desc = "Quit with save" },
+  { "<leader>cQ", "<cmd>qa<cr>", desc = "Quit all with check save" },
 }
 
 -- Tmux
@@ -60,6 +60,7 @@ wk.add({
   { "<leader>f", group = "telescope" },
   { "<leader>ft", "<cmd>TodoTrouble<CR>", desc = "Find Todo" },
   { "<leader>fl", "<cmd>Telescope live_grep<CR>", desc = "Search words in Project" },
+  { "<leader>fi", "<cmd>Telescope marks<CR>", desc = "Search marks in Project" },
 }, { mode = { "n", "v", "i" } })
 
 -- Duplicate Line

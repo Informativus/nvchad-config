@@ -52,18 +52,4 @@ M.nvdash = {
   },
 }
 
-M.mason = {
-  pkgs = {
-    "html",
-    "ts_ls",
-    "clangd",
-    "eslint",
-    "jsonls",
-    "pyright",
-    "prismals",
-    "yamlls",
-    "cssls",
-  },
-}
-
 return M

@@ -14,7 +14,7 @@ function M.create_file_modal()
         top_align = "center",
       },
     },
-    position = "50%",
+    position = "47%",
     size = {
       width = 40,
       height = 1,

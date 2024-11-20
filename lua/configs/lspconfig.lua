@@ -1,15 +1,7 @@
 local configs = require "nvchad.configs.lspconfig"
 local lspconfig = require "lspconfig"
 
-local on_attach = function(client, bufnr)
-  print "lsp-lens"
-  if client.server_capabilities.document_link_provider then
-    require("configs.lens").setup()
-    vim.cmd "LspLensOn"
-  end
-  configs.on_attach(client, bufnr)
-end
-
+local on_attach = configs.on_attach
 local capabilities = configs.capabilities
 
 local function setup_lsp_config(lsp, config)
@@ -49,11 +41,12 @@ local function setup_lsp_config(lsp, config)
   elseif lsp == "sqlls" then
     config.settings = {
       sql = {
-        connections = {
-          {
-            driver = "sqlite3",
-            dataSourceName = "file:example.db",
-          },
+        completion = {
+          enabled = true,
+        },
+        format = {
+          enabled = true,
+          provider = "sql-formatter",
         },
       },
     }
@@ -88,7 +81,6 @@ local servers = {
   "sqlls",
 }
 
--- Настройка всех LSP серверов
 for _, lsp in ipairs(servers) do
   local config = {
     on_attach = on_attach,
@@ -100,7 +92,6 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup(config)
 end
 
--- Настройка форматтеров/линтеров через Mason
 require("mason").setup {
   ensure_installed = {
     "black",

@@ -1,6 +1,6 @@
 local M = {}
 
-local create_new_file = "lua require('configs.nuiNewFilePopup').create_file_modal()"
+local create_new_file = "lua require('configs.nui.new_file_popup').create_file_modal()"
 M.ui = {
   statusline = {
     theme = "vscode_colored",
@@ -26,9 +26,6 @@ M.base46 = {
       fg = "none",
     },
   },
-  Normal = { bg = "none" },
-  NormalFloat = { bg = "none" },
-  FloatBorder = { bg = "none" },
 }
 
 M.nvdash = {
@@ -52,4 +49,5 @@ M.nvdash = {
   },
 }
 
+M.lsp = { signature = true }
 return M

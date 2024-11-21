@@ -2,6 +2,8 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local wk = require "which-key"
+local new_file_popup = require "configs.nui.new_file_popup"
+local replace_word_in_file = require "configs.nui.replace_word_in_file"
 
 wk.add {
   { "<leader>w", "<cmd>w<CR>", desc = "Save" },
@@ -22,6 +24,13 @@ wk.add {
 wk.add({
   { "<leader>ri", "<cmd>OrganizeImports<cr>", desc = "Organize Imports" },
   { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+  {
+    "<leader>rp",
+    function()
+      replace_word_in_file.replace_words()
+    end,
+    desc = "Replace text",
+  },
 }, { mode = "n" })
 
 map("n", "<S-j>", "5j", { desc = "Move 5 lines down" })
@@ -158,7 +167,13 @@ wk.add({
 
 wk.add {
   { "<leader>c", group = "" },
-  { "<leader>cf", "<cmd>lua require('configs.nuiNewFilePopup').create_file_modal()<cr>", desc = "Create new file" },
+  {
+    "<leader>cf",
+    function()
+      new_file_popup.create_file_modal()
+    end,
+    desc = "Create new file",
+  },
 }
 
 -- Visual Multi

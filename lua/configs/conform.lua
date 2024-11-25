@@ -7,8 +7,9 @@ local options = {
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     javascriptreact = { "prettier" },
+    json = { "prettier" },
     python = { "black" },
-    sql = { "sql-formatter" },
+    sql = { "sql_formatter" },
   },
 
   format_on_save = {

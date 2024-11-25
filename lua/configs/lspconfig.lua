@@ -62,6 +62,25 @@ local function setup_lsp_config(lsp, config)
     config.filetypes = { "dockerfile" }
   elseif lsp == "graphql" then
     config.filetypes = { "graphql", "gql", "js", "ts" }
+  elseif lsp == "jsonls" then
+    print "jsonls"
+    config.settings = {
+      json = {
+        format = { enabled = true },
+        schemas = {
+          {
+            description = "Package.json schema",
+            fileMatch = { "package.json" },
+            url = "https://json.schemastore.org/package.json",
+          },
+          {
+            description = "TSConfig schema",
+            fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+            url = "https://json.schemastore.org/tsconfig.json",
+          },
+        },
+      },
+    }
   end
 end
 

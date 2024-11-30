@@ -266,4 +266,17 @@ return {
       return conf
     end,
   },
+  {
+    "romgrk/barbar.nvim",
+    lazy = false,
+    dependencies = {
+      "lewis6991/gitsigns.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("configs.barbar").setup()
+    end,
+    opts = {},
+    version = "^1.0.0",
+  },
 }

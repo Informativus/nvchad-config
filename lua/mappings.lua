@@ -40,7 +40,6 @@ map("n", "<S-k>", "5k", { desc = "Move 5 lines up" })
 wk.add {
   { "<leader>c", group = "Code" },
   { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
-  { "<leader>cx", "<cmd>lua require('nvchad.tabufline').closeAllBufs()<CR>", desc = "Close All Buffers" },
   { "<leader>cq", "<cmd>wq<cr>", desc = "Quit with save" },
   { "<leader>cQ", "<cmd>qa<cr>", desc = "Quit all with check save" },
 }
@@ -228,6 +227,16 @@ end, { expr = true, silent = true })
 wk.add {
   { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to Declaration" },
   { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
+}
+
+-- Barbar
+wk.add {
+  { "<leader>z", group = "Buffers" },
+  { "<leader>z1", "<cmd>BufferGoto 1<cr>", desc = "Go to 1 tab" },
+  { "<leader>z2", "<cmd>BufferGoto 1<cr>", desc = "Go to 2 tab" },
+  { "<leader>z3", "<cmd>BufferGoto 1<cr>", desc = "Go to 3 tab" },
+  { "<leader>zp", "<cmd>BufferPin<cr>", desc = "Pin tab" },
+  { "<leader>zx", "<cmd>lua require('nvchad.tabufline').closeAllBufs()<CR>", desc = "Close All Buffers" },
 }
 
 map("n", "<leader>th", function()

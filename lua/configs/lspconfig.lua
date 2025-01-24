@@ -120,5 +120,6 @@ require("mason").setup {
     "stylua",
     "sql-formatter",
     "yamllint",
+    "stylelint",
   },
 }

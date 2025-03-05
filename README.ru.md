@@ -1,4 +1,23 @@
 # Установка
+
+1) Установка nvim
+```bash
+brew install neovim
+```
+
+2) Установка конфига
+```bash
+cd ~/.config/
+git clone <постоянная ссылка на репозиторий>
+mv nvchad-config nvim
+```
+
+3) Установка плагинов
+```bash
+nvim
+:Lazy
+I
+```
 # Сочетания клавиш Nvim и NeoTree
 
 ## Обзор

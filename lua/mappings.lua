@@ -247,3 +247,13 @@ wk.add({
 map("n", "<leader>th", function()
   require("nvchad.themes").open { border = true }
 end, {})
+
+vim.keymap.set("n", "n", function()
+  vim.cmd "normal! n"
+  require("hlslens").start()
+end)
+
+vim.keymap.set("n", "*", function()
+  vim.cmd "normal! *"
+  require("hlslens").start()
+end)

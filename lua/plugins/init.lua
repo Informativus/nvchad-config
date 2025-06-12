@@ -324,7 +324,7 @@ return {
             return 30
           end,
           predicate = function(scope)
-            return (scope.body.indent or 0) > 2
+            return (scope.body.indent or 0) > 0
           end,
         },
         options = {
@@ -341,6 +341,22 @@ return {
     main = "ibl",
     config = function()
       require("ibl").setup(require "configs.indent.indent-blankline")
+    end,
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    event = "BufReadPost",
+    config = function()
+      local config = require "configs.nvim-scrollbar"
+      require("scrollbar").setup(config)
+      require("scrollbar.handlers.search").setup()
+    end,
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    event = "VeryLazy",
+    config = function()
+      require("hlslens").setup()
     end,
   },
 }

@@ -248,12 +248,19 @@ map("n", "<leader>th", function()
   require("nvchad.themes").open { border = true }
 end, {})
 
-vim.keymap.set("n", "n", function()
+map("n", "n", function()
   vim.cmd "normal! n"
   require("hlslens").start()
 end)
 
-vim.keymap.set("n", "*", function()
+map("n", "*", function()
   vim.cmd "normal! *"
   require("hlslens").start()
 end)
+
+local function runUp()
+  -- If you want to use this functionality, you need to install im-select on your device.
+  require "configs.switch-language"
+end
+
+runUp()

@@ -67,7 +67,6 @@ wk.add({
 wk.add({
   { "<leader>f", group = "telescope" },
   { "<leader>ft", "<cmd>TodoTrouble<CR>", desc = "Find Todo" },
-  { "<leader>fl", "<cmd>Telescope live_grep<CR>", desc = "Search words in Project" },
   { "<leader>fi", "<cmd>Telescope marks<CR>", desc = "Search marks in Project" },
 }, { mode = { "n", "v", "i" } })
 

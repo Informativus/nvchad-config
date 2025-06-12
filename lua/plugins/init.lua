@@ -96,6 +96,11 @@ return {
             color = "#ff007f",
             name = "Proto",
           },
+          css = {
+            icon = "↔",
+            color = "#00BFFF",
+            name = "Css",
+          },
         }),
       }
     end,
@@ -290,5 +295,49 @@ return {
     end,
     opts = {},
     version = "^1.0.0",
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup {
+        current_line_blame = true,
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = "eol",
+          delay = 100,
+          ignore_whitespace = false,
+        },
+      }
+    end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    event = "BufReadPost",
+    config = function()
+      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#7fc7ba" })
+
+      require("mini.indentscope").setup {
+        symbol = "│",
+        draw = {
+          delay = 100,
+          animation = function(step, total)
+            return 30
+          end,
+        },
+        options = {
+          border = "both",
+          indent_at_cursor = true,
+          n_lines = 1000,
+          try_as_border = false,
+        },
+      }
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = function()
+      require("ibl").setup(require "configs.indent.indent-blankline")
+    end,
   },
 }

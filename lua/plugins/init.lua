@@ -323,6 +323,9 @@ return {
           animation = function(step, total)
             return 30
           end,
+          predicate = function(scope)
+            return (scope.body.indent or 0) > 2
+          end,
         },
         options = {
           border = "both",

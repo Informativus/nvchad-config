@@ -3,7 +3,6 @@ local default_input = "com.apple.keylayout.ABC"
 
 local function to_english()
   vim.fn.system { "im-select", default_input }
-  vim.notify "Switched to ABC layout"
 end
 
 local function switch()

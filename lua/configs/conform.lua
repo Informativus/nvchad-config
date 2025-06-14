@@ -3,6 +3,7 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     scss = { "prettier" },
+    yaml = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
     typescript = { "prettier" },
@@ -11,6 +12,7 @@ local options = {
     json = { "prettier" },
     python = { "black" },
     sql = { "sql_formatter" },
+    go = { "goimports" },
   },
 
   format_on_save = {

@@ -81,6 +81,18 @@ local function setup_lsp_config(lsp, config)
         },
       },
     }
+  elseif lsp == "gopls" then
+    config.settings = {
+      gopls = {
+        gofumpt = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+      },
+    }
   end
 end
 
@@ -98,6 +110,7 @@ local servers = {
   "dockerls",
   "graphql",
   "sqlls",
+  "gopls",
 }
 
 for _, lsp in ipairs(servers) do

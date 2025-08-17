@@ -134,5 +134,7 @@ require("mason").setup {
     "sql-formatter",
     "yamllint",
     "stylelint",
+    "goimports",
+    "revive",
   },
 }

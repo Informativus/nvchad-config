@@ -357,4 +357,5 @@ return {
       require("hlslens").setup()
     end,
   },
+  { import = "nvchad.blink.lazyspec" },
 }

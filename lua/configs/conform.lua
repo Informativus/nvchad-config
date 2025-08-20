@@ -11,7 +11,6 @@ local options = {
     javascriptreact = { "prettier" },
     json = { "prettier" },
     python = { "black" },
-    sql = { "sql_formatter" },
     go = { "goimports" },
   },
 

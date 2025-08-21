@@ -263,4 +263,7 @@ local function runUp()
   require "configs.switch-language"
 end
 
+vim.api.nvim_set_keymap("c", "<Tab>", "pumvisible() ? '<C-n>' : '<Tab>'", { expr = true, noremap = true })
+vim.api.nvim_set_keymap("c", "<S-Tab>", "pumvisible() ? '<C-p>' : '<S-Tab>'", { expr = true, noremap = true })
+
 runUp()

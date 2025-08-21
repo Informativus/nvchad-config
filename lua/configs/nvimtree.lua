@@ -32,7 +32,7 @@ local options = {
   },
   renderer = {
     root_folder_label = false, -- Не показывать метку корневой папки
-    highlight_opened_files = "none", -- Не подсвечивать открытые файлы
+    highlight_opened_files = "all", -- Не подсвечивать открытые файлы
     indent_markers = {
       enable = true, -- Показывать отступы в дереве файлов
     },

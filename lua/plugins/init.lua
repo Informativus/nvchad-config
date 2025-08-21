@@ -14,17 +14,17 @@ return {
       require "configs.ufo"
     end,
   },
-  {
-    "mg979/vim-visual-multi",
-    branch = "master",
-    lazy = false,
-    init = function()
-      vim.g.VM_maps = {
-        ["Find Under"] = "",
-      }
-      vim.g.VM_add_cursor_at_pos_no_mappings = 1
-    end,
-  },
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   branch = "master",
+  --   lazy = false,
+  --   init = function()
+  --     vim.g.VM_maps = {
+  --       ["Find Under"] = "",
+  --     }
+  --     vim.g.VM_add_cursor_at_pos_no_mappings = 1
+  --   end,
+  -- },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,

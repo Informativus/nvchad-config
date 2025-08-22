@@ -358,4 +358,26 @@ return {
     end,
   },
   { import = "nvchad.blink.lazyspec" },
+  {
+    "saghen/blink.cmp",
+    enabled = true,
+    opts = {
+      enabled = function()
+        local ft = vim.bo.filetype
+        local buftype = vim.bo.buftype
+
+        local disabled = { "NvimTree", "neo-tree", "TelescopePrompt", "DressingInput" }
+
+        if vim.tbl_contains(disabled, ft) then
+          return false
+        end
+
+        if buftype == "prompt" or buftype == "nofile" then
+          return false
+        end
+
+        return true
+      end,
+    },
+  },
 }

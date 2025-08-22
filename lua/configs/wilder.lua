@@ -1,7 +1,9 @@
 local M = {}
 
 M.setup = function()
-  require("wilder").setup {
+  local wilder = require "wilder"
+
+  wilder.setup {
     modes = { ":", "/", "?" },
     next_key = "<Tab>",
     prev_key = "<S-Tab>",
@@ -10,8 +12,6 @@ M.setup = function()
     use_vim_remote_plugin = false,
     num_workers = 4,
   }
-
-  local wilder = require "wilder"
 
   local highlighters = {
     wilder.pcre2_highlighter(),
@@ -57,10 +57,11 @@ M.setup = function()
 
   local render_search = wilder.popupmenu_renderer(wilder.popupmenu_border_theme(render_popup_border))
 
+  -- Здесь ключевой момент: отключаем popup для ':'
   wilder.set_option(
     "renderer",
     wilder.renderer_mux {
-      [":"] = wilder.popupmenu_renderer(wilder.popupmenu_palette_theme(render_popup_palette)),
+      [":"] = nil, -- nil или wilder.renderer_mux.none — popup не показывается
       ["/"] = render_search,
       substitute = render_search,
     }

@@ -36,6 +36,8 @@ wk.add({
 map("n", "<S-j>", "5j", { desc = "Move 5 lines down" })
 map("n", "<S-k>", "5k", { desc = "Move 5 lines up" })
 
+map("v", "<leader>dl", "yPgv", { desc = "Duplicate selection below" })
+
 -- Code
 wk.add {
   { "<leader>c", group = "Code" },

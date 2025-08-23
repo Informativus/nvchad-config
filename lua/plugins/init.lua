@@ -361,7 +361,34 @@ return {
   {
     "saghen/blink.cmp",
     enabled = true,
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "L3MON4D3/LuaSnip",
+      {
+        "saghen/blink.compat",
+        version = "2.*",
+        lazy = true,
+        opts = {},
+      },
+      {
+        "MattiasMTS/cmp-dbee",
+        branch = "ms/v2",
+      },
+    },
+    version = "v1.*",
     opts = {
+      sources = {
+        default = { "snippets", "lsp", "buffer", "path" },
+        providers = {
+          lsp = {
+            async = true,
+          },
+          dbee = { name = "dbee", module = "blink.compat.source" },
+        },
+        per_filetype = {
+          sql = { "dbee", "buffer" },
+        },
+      },
       enabled = function()
         local ft = vim.bo.filetype
         local buftype = vim.bo.buftype
@@ -390,24 +417,5 @@ return {
     config = function()
       require("dbee").setup()
     end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    enabled = true,
-    dependencies = {
-      {
-        "MattiasMTS/cmp-dbee",
-        dependencies = {
-          { "kndndrj/nvim-dbee" },
-        },
-        ft = "sql", -- optional but good to have
-        opts = {}, -- needed
-      },
-    },
-    opts = {
-      sources = {
-        { "dbee" },
-      },
-    },
   },
 }

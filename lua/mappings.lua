@@ -75,8 +75,6 @@ wk.add({
   { "<leader>d", "<cmd>t.<cr>", desc = "Duplicate Line" },
 }, { mode = "n" })
 
-map("v", "<leader>dl", "y'>pgv", { desc = "Duplicate Selected Lines" })
-
 -- Trouble
 wk.add {
   { "<leader>q", group = "Trouble" },
@@ -265,5 +263,11 @@ end
 
 vim.api.nvim_set_keymap("c", "<Tab>", "pumvisible() ? '<C-n>' : '<Tab>'", { expr = true, noremap = true })
 vim.api.nvim_set_keymap("c", "<S-Tab>", "pumvisible() ? '<C-p>' : '<S-Tab>'", { expr = true, noremap = true })
+
+-- Dbee
+wk.add {
+  { "<leader>db", "<cmd>Dbee open<cr>", desc = "Open Dbee" },
+  { "<leader>dc", "<cmd>Dbee close<cr>", desc = "Close Dbee" },
+}
 
 runUp()

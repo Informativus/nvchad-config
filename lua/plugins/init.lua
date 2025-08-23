@@ -380,4 +380,34 @@ return {
       end,
     },
   },
+  {
+    "kndndrj/nvim-dbee",
+    lazy = false,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    build = function() end,
+    config = function()
+      require("dbee").setup()
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    enabled = true,
+    dependencies = {
+      {
+        "MattiasMTS/cmp-dbee",
+        dependencies = {
+          { "kndndrj/nvim-dbee" },
+        },
+        ft = "sql", -- optional but good to have
+        opts = {}, -- needed
+      },
+    },
+    opts = {
+      sources = {
+        { "dbee" },
+      },
+    },
+  },
 }
